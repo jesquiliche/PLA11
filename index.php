@@ -23,7 +23,6 @@ if(isset($_COOKIE["usuarios"])){
 	$result=$validLogin->RunQuery($sql);
 	if(count($result)>0) $acceso_autorizado=true;
 	else $acceso_autorizado=false;
-	
 } 
 if(isset($_POST['login'])){
 	$validLogin = new MyHospital();
@@ -45,6 +44,12 @@ if(isset($_POST['login'])){
 	}
 
 }
+
+if(isset($_POST['logof'])){
+	setcookie("usuarios", $usuario^SECRET, time()-60, '/');	
+	header("Location: index.php");
+}
+
 
 //definir un array con las opciones disponibles
 $secciones = ['alta', 'consulta', 'mantenimiento'];
