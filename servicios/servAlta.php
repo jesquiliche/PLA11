@@ -11,20 +11,20 @@
 			if(empty($nif)){
 				array_push($errores,"El nif es requerido");
 			}
-			$nif=trim($_POST['nombre']);
+			$nombre=trim($_POST['nombre']);
 			if(empty($nombre)){
 				array_push($errores,"El nombre es requerido");
 			}
-			$nif=trim($_POST['apellidos']);
+			$apellidos=trim($_POST['apellidos']);
 			if(empty($apellidos)){
 				array_push($errores,"Los apellidos son requeridos");
 		
 			}
-			$nif=trim($_POST['fechaingreso']);
+	/*		$fechaingreso=trim($_POST['fechaingreso']);
 			if(empty($fechaingreso)){
 				array_push($errores,"La fecha de ingreso es requerida");
 		
-			}
+			}*/
 
 			if(count($errores)>0){
 				throw new Exception("Error de validación", 11);

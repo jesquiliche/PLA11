@@ -25,9 +25,9 @@ const alta=async ()=>{
         body: datos     //dades a enviar al servidor
     }
 
-    //fer la petició ajax
+
     await fetch(url, param)
-    //recollir la resposta del servidor
+    
     .then(await function(resp) {
         
         if (resp.ok) {
@@ -42,13 +42,14 @@ const alta=async ()=>{
     })
     //recoger el mensaje del servidor para informar el pais
     .then(mensaje=> {
+        error.innerHTML="";
         console.log(mensaje)
         if (mensaje.codigo == '00') {
             alert(mensaje)
         
         } else if (mensaje.codigo==11) {
             alert(mensaje.codigo);
-            error.innerHTML="";
+            
             for(x of mensaje.errors){
                 error.innerHTML+=`<div>${x}</div>`
 
