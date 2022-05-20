@@ -1,5 +1,5 @@
 <?php
-require_once "./models/BaseModelDAO.php";
+require_once "BaseModelDAO.php";
 
 final class MyHospital extends BaseDao{
     

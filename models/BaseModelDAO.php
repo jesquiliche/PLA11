@@ -1,6 +1,6 @@
 <?php 
-require_once "./database/conexionSingleton.php";
-require_once "./models/ICrudDAO.php";
+require_once "conexionSingleton.php";
+require_once "ICrudDAO.php";
 
 abstract class BaseDao implements ICrudDAO{
     private $con;

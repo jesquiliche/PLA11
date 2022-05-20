@@ -32,7 +32,7 @@
 	
 			
 			if(count($pacientes)>0){
-				echo "<form method='POST' action='index?consulta'>";
+				echo "<form method='POST' action='index.php?consulta'>";
 				echo "<center>";
 				echo "<label>Pacientes a mostrar</label>";
 				echo "<select name='numpacientes' onchange='this.form.submit()'>";
@@ -95,7 +95,7 @@
 			echo "<center>";
 			for($x=1;$x<$paginas;$x++){
 			
-				echo "<a href='index?consulta&pagina=$x'><input type='button' value='$x'></a>";
+				echo "<a href='index.php?consulta&pagina=$x'><input type='button' value='$x'></a>";
 			};
 			echo "</center>";
 			

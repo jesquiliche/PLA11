@@ -3,13 +3,7 @@ require_once "./models/MyHospitalDAO.php";
 
 
 const SECRET="@12/A{ÑzxxP12";
-$errores=array();
-$idpaciente=null;
-$nombre=null;
-$apellidos=null;
-$fechaingreso=null;
-$fechaalta=null;
-$nif="";
+
 $mensaje="";
 $cokie_guardada=false;
 
@@ -47,6 +41,7 @@ if(isset($_POST['login'])){
 
 if(isset($_POST['logof'])){
 	setcookie("usuarios", $usuario^SECRET, time()-60, '/');	
+	session_destroy();
 	header("Location: index.php");
 }
 
