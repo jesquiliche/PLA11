@@ -44,17 +44,22 @@ const alta=async ()=>{
     .then(mensaje=> {
         error.innerHTML="";
         console.log(mensaje)
-        if (mensaje.codigo == '00') {
-            alert(mensaje)
-        
-        } else if (mensaje.codigo==11) {
-            alert(mensaje.codigo);
-            
-            for(x of mensaje.errors){
-                error.innerHTML+=`<div>${x}</div>`
+        switch(mensaje.codigo){
+            case '00':
+                error.innerHTML="Paciente dado de alta";
+                break;
+            case '10':
+                error.innerHTML="El paciente ya existe en la BB.DD";
+                break;
+            case '11':
+                error.innerHTML="";
+                for(x of mensaje.errors){
+                    error.innerHTML+=`<div>${x}</div>`
+                }
+             break;
 
-            }
-        } else{}
+        }
+       
     })
     .catch(function(error) {
         

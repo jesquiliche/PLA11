@@ -20,15 +20,13 @@
 				array_push($errores,"Los apellidos son requeridos");
 		
 			}
-	/*		$fechaingreso=trim($_POST['fechaingreso']);
+			$fechaingreso=trim($_POST['fechaingreso']);
 			if(empty($fechaingreso)){
 				array_push($errores,"La fecha de ingreso es requerida");
 		
-			}*/
-
+			}
 			if(count($errores)>0){
 				throw new Exception("Error de validación", 11);
-				
 			}
 	
 			$paciente =new MyHospital();
