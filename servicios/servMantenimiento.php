@@ -23,4 +23,5 @@ require_once "../models/MyHospitalDAO.php";
 		if(isset($_POST['baja'])){
 		//	baja();
 		}
+		echo json_encode(["respuesta"=>"ok"])
 	?>

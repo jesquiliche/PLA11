@@ -1,6 +1,24 @@
 const detalle=async (id)=>{
-    alert(id)
+    
+    const url = './servicios/servMantenimiento.php'
+    
+    const datos=new FormData();
+    datos.append('idpaciente',id)
+   
+    let param = {
+        method: 'POST', 
+        body: datos
+    }
+   
+    const data=await fetch(url, param)
+    
+    const response=await data.json()
+    sessionStorage.setItem('idpaciente', id)
+    window.location.href = 'index.php?mantenimiento'
+    console.log(response)
+    
 }
+
 async function consulta(p=1){
    
     const numpacientes=document.getElementById("cbopacientes").value;
@@ -43,7 +61,7 @@ async function consulta(p=1){
     });
     
     paginacion.innerHTML=""
-    for(let x=1;x<paginas+1;x++){
+    for(let x=1;x<=paginas;x++){
         paginacion.innerHTML+=`<a href='#' ${x}'><input type='button' id='pagina' value='${x}' onclick='consulta(${x})') ></a>`
     }
     
