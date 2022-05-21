@@ -107,7 +107,7 @@
 
 	<script type="text/javascript" src="./js/consulta.js"></script>
 		
-	<div id="paginas">
+	<div id="paginas" style="text-align: center;">
 
 
 	</div>

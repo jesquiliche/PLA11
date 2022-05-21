@@ -1,8 +1,14 @@
-const consulta=async (p=1)=>{
+const detalle=async (id)=>{
+    alert(id)
+}
+async function consulta(p=1){
    
     const numpacientes=document.getElementById("cbopacientes").value;
-    const pagina=1;
-//    const pagina=document.getElementById("pagina").value;
+    if(parseInt(p)==NaN) p=1
+    
+    
+    const pagina=p;
+
     const buscar=document.getElementById("buscar").value;
     const tabla=document.getElementById("filas");
     const paginacion=document.getElementById("paginas");
@@ -31,14 +37,18 @@ const consulta=async (p=1)=>{
         fila.insertCell().innerHTML = e.nif;
         fila.insertCell().innerHTML = e.nombre;
         fila.insertCell().innerHTML = e.apellidos;
+        enlace=`<input type='button' class='consulta' value='Detalle paciente' onclick='detalle(${e.idpaciente})'>` 
+        fila.insertCell().innerHTML = enlace;
+
     });
     
-    paginacion.innerHTML="<center>";
+    paginacion.innerHTML=""
     for(let x=1;x<paginas+1;x++){
-        paginacion.innerHTML+=`<a href='#' ${x}'><input type='button' id='pagina' value='${x}' ></a>`
+        paginacion.innerHTML+=`<a href='#' ${x}'><input type='button' id='pagina' value='${x}' onclick='consulta(${x})') ></a>`
     }
-    paginacion.innerHTML+="</center>";
+    
     
 }
 
-document.getElementById("cbopacientes").addEventListener("change",consulta)
+document.getElementById("cbopacientes").addEventListener("change",()=>consulta(1))
+document.getElementById("buscar").addEventListener("keyup",()=>consulta(1))
