@@ -9,9 +9,6 @@ const alta=async ()=>{
     const fechaingreso = document.querySelector('#apellidos').value
     const error=document.querySelector('#errores')
 
-
-
-    //console.log(formulario)
     const datos=new FormData();
     datos.append('nif',nif)
     datos.append('nombre',nombre)
@@ -36,14 +33,14 @@ const alta=async ()=>{
             return resp.json(); //o text() o blob()
         } else {
             //resposta amb error
-            console.log(resp.text)
-            throw("La petició no ha s'ha pogut realitzar")
+
+            throw("La petición no se ha podido realizar")
         }
     })
     //recoger el mensaje del servidor para informar el pais
     .then(mensaje=> {
         error.innerHTML="";
-        console.log(mensaje)
+
         switch(mensaje.codigo){
             case '00':
                 error.innerHTML="Paciente dado de alta";

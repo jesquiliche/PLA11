@@ -1,8 +1,7 @@
 <?php
 		require_once "../models/MyHospitalDAO.php";
 		require_once "../utils/utils.php";
-		
-
+	
 	
 		try{
 			$mensaje=array();
@@ -23,7 +22,6 @@
 			$fechaingreso=trim($_POST['fechaingreso']);
 			if(empty($fechaingreso)){
 				array_push($errores,"La fecha de ingreso es requerida");
-		
 			}
 			if(count($errores)>0){
 				throw new Exception("Error de validación", 11);

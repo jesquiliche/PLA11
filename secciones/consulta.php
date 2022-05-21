@@ -1,41 +1,17 @@
 	<?php
-		require_once "./models/MyHospitalDAO.php";
-
-		session_start();
-		if(isset($_POST['pacientes'])){
-			$_SESSION['pacientes'] = $_POST['numpacientes'];
-		}
-		$pacientes_a_mostrar = $_SESSION['pacientes'] ?? 5;
-		if(isset($_POST['buscar'])){
-			$_SESSION['apellido'] = $_POST['buscar'];
-		}
-		$buscar_apellido=$_SESSION['apellido']??null;
-
-		$hospital= new MyHospital();
-		$pagina = filter_input(INPUT_GET, 'pagina') ?? 1;
-		$filas_a_mostrar = filter_input(INPUT_POST, 'numpacientes', FILTER_VALIDATE_INT) ?? 5;
-		$fila_desde = ($pagina - 1) * $filas_a_mostrar;
-	//	$buscar_apellido = filter_input(INPUT_POST, 'buscaapellido') ?? null;
-		$pacientes=$hospital->RunQuery("SELECT * FROM paciente WHERE apellidos LIKE '%$buscar_apellido%' ORDER BY nombre,
-		apellidos LIMIT $fila_desde, $filas_a_mostrar");
-		global $mensaje;
+		
 
 	?>
 	<h2>Consulta de pacientes</h2>
-	<table id='pacientes'>
-		<tr>
-			<th>Nif</th>
-			<th>Nombre</th>
-			<th>Apellidos</th>
-		</tr>
-		<?php 
 	
+		<?php 
+	/*
 			
 			if(count($pacientes)>0){
 				echo "<form method='POST' action='index.php?consulta'>";
 				echo "<center>";
 				echo "<label>Pacientes a mostrar</label>";
-				echo "<select name='numpacientes' onchange='this.form.submit()'>";
+				echo "<select name='cboapacientes' id='cbopacientes' onchange='this.form.submit()'>";
 				if($filas_a_mostrar == 5){
 					echo "<option selected>5</option>";
 				} else {
@@ -95,12 +71,56 @@
 			echo "<center>";
 			for($x=1;$x<$paginas;$x++){
 			
-				echo "<a href='index.php?consulta&pagina=$x'><input type='button' value='$x'></a>";
+				echo "<a href='index.php?consulta&pagina=$x'><input type='button' id='pagina' value='$x'></a>";
 			};
 			echo "</center>";
 			
-
+*/
 		?>
+		<form>
+			<center>
+			<label>Pacientes a mostrar</label>
+			<select name='cboapacientes' id='cbopacientes'>
+				<option>5</option>
+				<option>10</option>
+				<option>20</option>
+				<option>50</option>
 			
-	</table><br><br>
-	<h4></h4>
+			</select>
+			</center>
+			</br>
+			<center>
+			Buscar por apellido : <span><input type='text' id='buscar' name='buscar'></span>
+			</center>
+			</br>
+		</form>
+		<table id='pacientes'>
+			<thead>
+				<th>Nif</th>
+				<th>Nombre</th>
+				<th>Apellidos</th>
+			</thead>
+			<tbody id="filas">
+				
+			</tbody>
+		</table>
+
+	<script type="text/javascript" src="./js/consulta.js"></script>
+		
+	<div id="paginas">
+
+
+	</div>
+
+
+		<?php
+		/*	echo "<center>";
+			for($x=1;$x<$paginas;$x++){
+			
+				echo "<a href='index.php?consulta&pagina=$x'><input type='button' id='pagina' value='$x'></a>";
+			};
+			echo "</center>";*/
+		?>
+	
+			
+	
