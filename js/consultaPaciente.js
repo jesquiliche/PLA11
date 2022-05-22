@@ -1,4 +1,4 @@
-var id;
+
 function getCookie(cname) {
   let name = cname + "=";
   let decodedCookie = document.cookie;
@@ -38,7 +38,7 @@ const consultapaciente = async () => {
   document.getElementById('nombre').value=response.nombre
   document.getElementById('apellidos').value=response.apellidos
   document.getElementById('fechaingreso').value=response.fechaingreso
-  document.getElementById('fechaalta').value=dresponse.fechaalta
+  document.getElementById('fechaalta').value=response.fechaalta
 
   // window.location.href = 'index.php?mantenimiento'
 };

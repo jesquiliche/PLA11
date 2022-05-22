@@ -43,11 +43,17 @@
 		<label>Fecha Alta Médica:</label>
 		<input type="date" id="fechaalta" name="fechaalta">
 		<br><br>
-		<input type="submit" id="modificacion" name="modificacion" value='Modificar paciente' >
-		<input type="submit" id="baja" name="baja" value='Baja paciente' >
+		<input type="button" id="modificacion" name="modificacion" value='Modificar paciente' >
+		<input type="button" id="baja" name="baja" value='Baja paciente' >
 		<br><br>
+		<div id="errores">
 		
-		<script type = "text/javascript" src = '../js/consultapaciente.js'> </script>
+		</div>
+		
+		
 		
 	
 	</form>
+
+	<script type = "text/javascript" src = '../js/consultapaciente.js'> </script>
+	<script type = "text/javascript" src = '../js/modificapaciente.js'> </script>
