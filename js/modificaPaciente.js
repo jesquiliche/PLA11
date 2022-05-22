@@ -67,21 +67,21 @@ const modificaPaciente=async ()=>{
                 error.innerHTML="Paciente dado de alta";
                 break;
             case '10':
-                error.innerHTML=mensaje.error;
+                error.innerHTML=mensaje.repuesta;
                 break;
             case '11':
-             /*   error.innerHTML="";
+                error.innerHTML="";
                 for(x of mensaje.errors){
                     error.innerHTML+=`<div>${x}</div>`
-                }*/
+                }
              break;
 
         }
        
     })
-    .catch(function(error) {
+    .catch(function(e) {
         
-        alert(error)
+        alert(e)
     })
    
     

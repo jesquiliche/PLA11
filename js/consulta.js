@@ -47,7 +47,6 @@ async function consulta(p=1){
     const data=await fetch(url, param)
     
     const response=await data.json()
-    console.log(response)
     const paginas=response.paginas
 
     tabla.innerHTML="";
