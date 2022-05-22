@@ -1,5 +1,5 @@
 	<?php
-		require_once "./models/MyHospitalDAO.php";
+	/*	require_once "./models/MyHospitalDAO.php";
 		require_once "./utils/utils.php";
 		require_once "./funciones/funxiones.php";
 
@@ -22,33 +22,32 @@
 
 		if(isset($_POST['baja'])){
 			baja();
-		}
+		}*/
 	?>
 	<h2>Mantenimiento paciente</h2>
-	<form id='formulario' method='post' action='#'>
+	<form id='formulario'>
 	
-		<input type="hidden" id='idpaciente' name='idpaciente' value=<?=$idpaciente?>>
+		<input type="hidden" id='idpaciente' name='idpaciente'>
 		<label>NIF:</label>
-		<input type="text" id="nif" name="nif" value='<?=$nif?>'>
+		<input type="text" id="nif" name="nif">
 		<br><br>
 		<label>Nombre:</label>
-		<input type="text" id="nombre" name="nombre" value='<?=$nombre?>'>
+		<input type="text" id="nombre" name="nombre">
 		<br><br>
 		<label>Apellidos:</label>
-		<input type="text" id="apellidos" name="apellidos" value='<?=$apellidos?>'>
+		<input type="text" id="apellidos" name="apellidos">
 		<br><br>
 		<label>Fecha Ingreso:</label>
-		<input type="date" id="fechaingreso" name="fechaingreso" value='<?=$fechaingreso?>'>
+		<input type="date" id="fechaingreso" name="fechaingreso">
 		<br><br>
 		<label>Fecha Alta Médica:</label>
-		<input type="date" id="fechaalta" name="fechaalta" value='<?=$fechaalta?>'>
+		<input type="date" id="fechaalta" name="fechaalta">
 		<br><br>
 		<input type="submit" id="modificacion" name="modificacion" value='Modificar paciente' >
 		<input type="submit" id="baja" name="baja" value='Baja paciente' >
 		<br><br>
-		<h4><?=$mensaje?></h4>
-		<div>
-			<?php showErrors($errores); ?>
-		</div>
+		
+		<script type = "text/javascript" src = '../js/consultapaciente.js'> </script>
+		
 	
 	</form>

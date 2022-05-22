@@ -1,17 +1,31 @@
 <?php 
+
 require_once "../models/MyHospitalDAO.php";
+
 		require_once "../utils/utils.php";
 		require_once "../funciones/funxiones.php";
+		session_start();		
 
-		global $errores;
-		global $idpaciente;
-		$errores=array();
-		$mensaje="";
+		
+		
+	/*	if(!isset($_SESSION['idpaciente'])) {
+			echo json_encode(["error"=>"No hay session"]);
+			return 0;
+
+		}
+*/	
+	//	session_start();
+		$idpaciente=$_COOKIE['idpaciente'];
+	
+	
 	
 		
 		$paciente=new MyHospital();
-		$paciente=$paciente->FindById($_POST['idpaciente']);
-		$idpaciente=$_POST['idpaciente'];
+	
+		$data=$paciente->FindById($idpaciente);
+			
+
+		
 		
 		
 
@@ -23,5 +37,6 @@ require_once "../models/MyHospitalDAO.php";
 		if(isset($_POST['baja'])){
 		//	baja();
 		}
-		echo json_encode(["respuesta"=>"ok"])
+		echo json_encode($data);
+		
 	?>

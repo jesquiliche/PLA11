@@ -1,0 +1,23 @@
+const datos=new FormData();
+datos.append('idpaciente',id)
+
+let param = {
+    method: 'POST', 
+    body: datos
+}
+
+sessionStorage.setItem('idpaciente', id)
+setCookie("idpaciente",id,30)
+
+const data=await fetch(url, param)
+
+const response=await data.json()
+console.log(response)
+
+
+
+window.location.href = 'index.php?mantenimiento'
+document.getElementById('nif').value=response.nif
+
+
+}

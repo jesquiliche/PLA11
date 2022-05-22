@@ -128,7 +128,7 @@ abstract class BaseDao implements ICrudDAO{
         $stmt = $this->con->prepare("SELECT * FROM $this->table WHERE $this->primaryKey = ?");
         $stmt->execute(array($id));
     
-        return $stmt->fetch();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     //borrar registro

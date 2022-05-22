@@ -1,21 +1,22 @@
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+  }
+
+
+
 const detalle=async (id)=>{
     
     const url = './servicios/servMantenimiento.php'
     
-    const datos=new FormData();
-    datos.append('idpaciente',id)
    
-    let param = {
-        method: 'POST', 
-        body: datos
-    }
-   
-    const data=await fetch(url, param)
+    setCookie("idpaciente",id,30)
     
-    const response=await data.json()
-    sessionStorage.setItem('idpaciente', id)
     window.location.href = 'index.php?mantenimiento'
-    console.log(response)
+   // document.getElementById('nif').value=response.nif
+    
     
 }
 
