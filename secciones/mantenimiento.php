@@ -1,32 +1,12 @@
 	<?php
-	/*	require_once "./models/MyHospitalDAO.php";
-		require_once "./utils/utils.php";
-		require_once "./funciones/funxiones.php";
-
-		global $errores;
-		global $idpaciente;
-		$errores=array();
-		$mensaje="";
-	
-		if(isset($_POST['consulta'])){
-			$paciente=new MyHospital();
-			$paciente=$paciente->FindById($_POST['idpaciente']);
-			$idpaciente=$_POST['idpaciente'];
-			cargaDatos($paciente);
-		}
-
-		if(isset($_POST['modificacion'])){
-			modificacion();
-		}
-		
-
-		if(isset($_POST['baja'])){
-			baja();
-		}*/
-	?>
+	if (!isset($_COOKIE['idpaciente'])) {
+		    echo "<script>alert('Debe seleccionar un paciente primero')</script>";
+    	return 0;
+	}
+?>
 	<h2>Mantenimiento paciente</h2>
 	<form id='formulario'>
-	
+
 		<input type="hidden" id='idpaciente' name='idpaciente'>
 		<label>NIF:</label>
 		<input type="text" id="nif" name="nif">
@@ -43,18 +23,18 @@
 		<label>Fecha Alta Médica:</label>
 		<input type="date" id="fechaalta" name="fechaalta">
 		<br><br>
-		<input type="button" id="modificacion" name="modificacion" value='Modificar paciente' >
-		<input type="button" id="baja" name="baja" value='Baja paciente' >
+		<input type="button" id="modificacion" name="modificacion" value='Modificar paciente'>
+		<input type="button" id="baja" name="baja" value='Baja paciente'>
 		<br><br>
 		<div id="errores">
-		
+
 		</div>
-		
-		
-		
-	
+
+
+
+
 	</form>
 
-	<script type = "text/javascript" src = './js/consultaPaciente.js'> </script>
-	<script type = "text/javascript" src = './js/modificaPaciente.js'> </script>
-	<script type = "text/javascript" src = './js/bajaPaciente.js'> </script>
+	<script type="text/javascript" src='./js/consultaPaciente.js'> </script>
+	<script type="text/javascript" src='./js/modificaPaciente.js'> </script>
+	<script type="text/javascript" src='./js/bajaPaciente.js'> </script>

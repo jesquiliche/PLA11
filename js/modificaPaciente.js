@@ -28,7 +28,10 @@ const modificaPaciente=async ()=>{
     if(fechaingreso.length==0) {
         mensaje+="La fecha ingreso es requerida.\n"
     }
-    if(mensaje.length>0) alert(mensaje)
+    if(mensaje.length>0) {
+        alert(mensaje)
+        return 0
+    }
 
     const datos=new FormData()
     datos.append('idpaciente',idpaciente)
@@ -68,7 +71,7 @@ const modificaPaciente=async ()=>{
                 error.innerHTML="Paciente moodificado";
                 break;
             case '10':
-                error.innerHTML="El paciente no ha sido modificado";
+                error.innerHTML="El nif ya existe en la base de datos";
                 break;
             case '11':
                 error.innerHTML="";

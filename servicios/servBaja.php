@@ -33,3 +33,4 @@ try {
     ];
     echo json_encode($mensaje);
 }
+setcookie('idpaciente','',time()-60);

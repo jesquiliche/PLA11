@@ -1,4 +1,3 @@
-
 function getCookie(cname) {
   let name = cname + "=";
   let decodedCookie = document.cookie;
@@ -33,12 +32,12 @@ const consultapaciente = async () => {
 
   const response = await data.json();
 
-  document.getElementById('idpaciente').value=response.idpaciente
-  document.getElementById('nif').value=response.nif
-  document.getElementById('nombre').value=response.nombre
-  document.getElementById('apellidos').value=response.apellidos
-  document.getElementById('fechaingreso').value=response.fechaingreso
-  document.getElementById('fechaalta').value=response.fechaalta
+  document.getElementById("idpaciente").value = response.idpaciente;
+  document.getElementById("nif").value = response.nif;
+  document.getElementById("nombre").value = response.nombre;
+  document.getElementById("apellidos").value = response.apellidos;
+  document.getElementById("fechaingreso").value = response.fechaingreso;
+  document.getElementById("fechaalta").value = response.fechaalta;
 
   // window.location.href = 'index.php?mantenimiento'
 };

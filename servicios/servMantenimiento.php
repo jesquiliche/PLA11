@@ -8,13 +8,7 @@ require_once "../models/MyHospitalDAO.php";
 
 		
 		
-	/*	if(!isset($_SESSION['idpaciente'])) {
-			echo json_encode(["error"=>"No hay session"]);
-			return 0;
-
-		}
-*/	
-	//	session_start();
+	
 		$idpaciente=$_COOKIE['idpaciente'];
 	
 	
