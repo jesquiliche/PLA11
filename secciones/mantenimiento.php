@@ -57,3 +57,4 @@
 
 	<script type = "text/javascript" src = './js/consultaPaciente.js'> </script>
 	<script type = "text/javascript" src = './js/modificaPaciente.js'> </script>
+	<script type = "text/javascript" src = './js/bajaPaciente.js'> </script>

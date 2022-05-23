@@ -10,15 +10,15 @@ const modificaPaciente=async ()=>{
     const apellidos=document.getElementById('apellidos').value
     const fechaingreso=document.getElementById('fechaingreso').value
     const error=document.querySelector('#errores')
-    alert(error)
+    
     
 
     if(idpaciente.length==0) {
         mensaje+="Debe seleccionar un paciente primero.\n"
     } 
- /*   if(nif.length==0) {
+    if(nif.length==0) {
         mensaje+="El nif es requerido.\n"
-    }*/ 
+    } 
     if(nombre.length==0) {
         mensaje+="El nombre es requerido.\n"
     }
