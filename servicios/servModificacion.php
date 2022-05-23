@@ -32,11 +32,20 @@
             array_push($errores,"La fecha de ingreso es requerida");
         }
         if(count($errores)>0){
-            throw new Exception("Error de validación", 11);
+            throw new Exception("Error de validación", 10);
         }
 
         $paciente =new MyHospital();
         //$paciente->setExclude("alta");
+        $nif2="";
+        $modificado=$paciente->IsModifiedRecord($idpaciente,$_POST,$nif2);
+        if(!$modificado){
+            throw new Exception("El paciente no ha sido modificado", 10);
+        }
+        if($nif2!="" && ($nif!=$nif2)){
+            throw new Exception("El nif ya se encuentra en la base de datos", 12);
+        }
+        
         $paciente->Update($_POST);
         $paciente=null;
         
@@ -44,16 +53,28 @@
             "codigo"=>"00",
             "respuesta"=>"Paciente modificado"
         ];
+        
     }catch(Exception $e){
         if($e->getCode()==23000){
             $mensaje=[
                 "codigo"=>"10",
-                "respuesta"=>"El paciente ya existe en la BB.DD",
+                "respuesta"=>"El nif ya existe en la BB.DD",
             ];
         }elseif($e->getCode()==11){
             $mensaje=[
                 "codigo"=>"11",
                 "errors"=>$errores
+            ];
+        }
+        elseif($e->getCode()==12){
+                $mensaje=[
+                    "codigo"=>"12",
+                    "respuesta"=>"El nif ya existe en la BB.DD"
+                ];
+        }elseif($e->getCode()==10){
+            $mensaje=[
+                "codigo"=>"10",
+                "respuesta"=>$e->getMessage(),
             ];
         }
         else{

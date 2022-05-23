@@ -70,3 +70,5 @@ async function consulta(p=1){
 
 document.getElementById("cbopacientes").addEventListener("change",()=>consulta(1))
 document.getElementById("buscar").addEventListener("keyup",()=>consulta(1))
+
+consulta(1)

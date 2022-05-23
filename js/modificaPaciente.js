@@ -1,5 +1,5 @@
 
-alert("entro")
+
 
 const modificaPaciente=async ()=>{
     let mensaje=""
@@ -36,6 +36,7 @@ const modificaPaciente=async ()=>{
     datos.append('nombre',nombre)
     datos.append('apellidos',apellidos)
     datos.append('fechaingreso',fechaingreso)
+    datos.append('fechaalta',fechaingreso)
     
     const url = './servicios/servModificacion.php'
 
@@ -64,17 +65,20 @@ const modificaPaciente=async ()=>{
         console.log(mensaje)
         switch(mensaje.codigo){
             case '00':
-                error.innerHTML="Paciente dado de alta";
+                error.innerHTML="Paciente moodificado";
                 break;
             case '10':
-                error.innerHTML=mensaje.repuesta;
+                error.innerHTML="El paciente no ha sido modificado";
                 break;
             case '11':
                 error.innerHTML="";
                 for(x of mensaje.errors){
                     error.innerHTML+=`<div>${x}</div>`
                 }
-             break;
+                break;
+             case '12':
+                error.innerHTML="El nif ya existe en la base de datos";
+                break;
 
         }
        

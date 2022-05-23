@@ -55,5 +55,5 @@
 	
 	</form>
 
-	<script type = "text/javascript" src = '../js/consultapaciente.js'> </script>
-	<script type = "text/javascript" src = '../js/modificapaciente.js'> </script>
+	<script type = "text/javascript" src = './js/consultaPaciente.js'> </script>
+	<script type = "text/javascript" src = './js/modificaPaciente.js'> </script>

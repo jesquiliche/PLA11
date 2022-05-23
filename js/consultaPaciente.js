@@ -32,7 +32,7 @@ const consultapaciente = async () => {
   const data = await fetch(url, param);
 
   const response = await data.json();
-  console.log(response);
+
   document.getElementById('idpaciente').value=response.idpaciente
   document.getElementById('nif').value=response.nif
   document.getElementById('nombre').value=response.nombre
